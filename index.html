@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ramadhan Youth Festival 2026 - Karang Taruna RW 04, Kelapa Gading Timur, Jakarta">
+    <title>Ramadhan Youth Festival 2026 | Registration</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- TailwindCSS v3 Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GSAP 3 + Plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+    
+    <!-- Alpine.js v3 -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        :root {
+            --deep: #060f0a;
+            --dark: #0a2118;
+            --surface: #0f3320;
+            --emerald: #10b981;
+            --bright: #34d399;
+            --gold: #f59e0b;
+            --gold-dim: #92400e;
+            --text: #d1fae5;
+            --muted: #6ee7b7;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--deep);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+        
+        .font-amiri {
+            font-family: 'Amiri', serif;
+        }
+        
+        .font-syne {
+            font-family: 'Syne', sans-serif;
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, var(--emerald), var(--bright), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glow-emerald {
+            text-shadow: 0 0 20px rgba(52, 211, 153, 0.5), 0 0 40px rgba(16, 185, 129, 0.3);
+        }
+        
+        .glow-gold {
+            text-shadow: 0 0 20px rgba(245, 158, 11, 0.5), 0 0 40px rgba(251, 191, 36, 0.3);
+        }
+        
+        .card-glow {
+            box-shadow: 0 0 40px rgba(16, 185, 129, 0.1), 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        
+        .card-glow:hover {
+            box-shadow: 0 0 60px rgba(16, 185, 129, 0.3), 0 20px 80px rgba(0, 0, 0, 0.6);
+            transform: translateY(-4px);
+            transition: all 0.3s ease;
+        }
+        
+        .bg-ornament {
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
+        }
+        
+        .islamic-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2310b981' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--emerald), var(--bright));
+            color: var(--deep);
+            font-weight: 600;
+            padding: 1rem 2.5rem;
+            border-radius: 0.75rem;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.4);
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .input-field {
+            background: var(--surface);
+            border: 2px solid rgba(16, 185, 129, 0.2);
+            border-radius: 0.75rem;
+            padding: 1rem 1.5rem;
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .input-field:focus {
+            outline: none;
+            border-color: var(--emerald);
+            box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+        }
+        
+        .input-field::placeholder {
+            color: var(--muted);
+            opacity: 0.6;
+        }
+        
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--emerald), transparent);
+            margin: 4rem 0;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        
+        .ornament-circle {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+            opacity: 0.1;
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--deep);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--emerald);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--bright);
+        }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        deep: '#060f0a',
+                        dark: '#0a2118',
+                        surface: '#0f3320',
+                        emerald: '#10b981',
+                        bright: '#34d399',
+                        gold: '#f59e0b',
+                        'gold-dim': '#92400e',
+                        text: '#d1fae5',
+                        muted: '#6ee7b7',
+                    },
+                    fontFamily: {
+                        amiri: ['Amiri', 'serif'],
+                        syne: ['Syne', 'sans-serif'],
+                        sans: ['DM Sans', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 bg-deep/80 backdrop-blur-lg border-b border-emerald/20" x-data="{ isOpen: false, scrolled: false }" 
+         @scroll.window="scrolled = window.pageYOffset > 50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-emerald to-bright flex items-center justify-center">
+                        <i data-lucide="moon-star" class="w-6 h-6 text-deep"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-syne font-bold text-gradient">RYF 2026</h1>
+                        <p class="text-xs text-muted">Karang Taruna RW 04</p>
+                    </div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-text hover:text-bright transition">Home</a>
+                    <a href="#about" class="text-text hover:text-bright transition">About</a>
+                    <a href="#program" class="text-text hover:text-bright transition">Program</a>
+                    <a href="#register" class="text-text hover:text-bright transition">Register</a>
+                    <a href="#register" class="btn-primary">Daftar Sekarang</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button @click="isOpen = !isOpen" class="md:hidden text-text">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div x-show="isOpen" x-transition class="md:hidden mt-4 pb-4 space-y-4">
+                <a href="#home" class="block text-text hover:text-bright transition">Home</a>
+                <a href="#about" class="block text-text hover:text-bright transition">About</a>
+                <a href="#program" class="block text-text hover:text-bright transition">Program</a>
+                <a href="#register" class="block text-text hover:text-bright transition">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-ornament islamic-pattern">
+        <!-- Ornamental Circles -->
+        <div class="ornament-circle w-96 h-96 top-10 -left-20"></div>
+        <div class="ornament-circle w-64 h-64 bottom-20 -right-10"></div>
+        
+        <div class="container mx-auto px-6 py-32 relative z-10">
+            <div class="text-center max-w-5xl mx-auto">
+                <!-- Arabic Greeting -->
+                <div data-aos="fade-down" data-aos-duration="1000">
+                    <p class="text-2xl md:text-4xl font-amiri text-gold glow-gold mb-6">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
+                </div>
+                
+                <!-- Main Title -->
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <h1 class="text-5xl md:text-8xl font-syne font-bold mb-6 leading-tight">
+                        <span class="text-gradient glow-emerald">Ramadhan</span><br>
+                        <span class="text-white">Youth Festival</span><br>
+                        <span class="text-gold glow-gold">2026</span>
+                    </h1>
+                </div>
+                
+                <!-- Subtitle -->
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                    <p class="text-xl md:text-2xl text-muted mb-4">Karang Taruna RW 04</p>
+                    <p class="text-lg md:text-xl text-muted/80 mb-8">Kelapa Gading Timur, Jakarta Utara</p>
+                </div>
+                
+                <!-- Date & Location -->
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600" class="flex flex-col md:flex-row items-center justify-center gap-6 mb-12">
+                    <div class="flex items-center gap-3 bg-surface/50 backdrop-blur px-6 py-3 rounded-full border border-emerald/30">
+                        <i data-lucide="calendar" class="w-5 h-5 text-emerald"></i>
+                        <span class="text-text font-medium">Ramadhan 1447 H / Maret 2026</span>
+                    </div>
+                    <div class="flex items-center gap-3 bg-surface/50 backdrop-blur px-6 py-3 rounded-full border border-gold/30">
+                        <i data-lucide="map-pin" class="w-5 h-5 text-gold"></i>
+                        <span class="text-text font-medium">Jakarta Utara</span>
+                    </div>
+                </div>
+                
+                <!-- CTA Buttons -->
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800" class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#register" class="btn-primary text-lg">
+                        <span class="flex items-center justify-center gap-2">
+                            <i data-lucide="user-plus" class="w-5 h-5"></i>
+                            Daftar Sekarang
+                        </span>
+                    </a>
+                    <a href="#about" class="bg-transparent border-2 border-emerald text-emerald hover:bg-emerald hover:text-deep font-semibold px-10 py-4 rounded-xl transition-all duration-300">
+                        <span class="flex items-center justify-center gap-2">
+                            <i data-lucide="info" class="w-5 h-5"></i>
+                            Pelajari Lebih Lanjut
+                        </span>
+                    </a>
+                </div>
+                
+                <!-- Scroll Indicator -->
+                <div data-aos="fade" data-aos-duration="1000" data-aos-delay="1000" class="mt-20">
+                    <div class="flex flex-col items-center gap-2 pulse-glow">
+                        <p class="text-sm text-muted">Scroll untuk melihat lebih</p>
+                        <i data-lucide="chevron-down" class="w-6 h-6 text-emerald animate-bounce"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-dark relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-6xl font-syne font-bold mb-4">
+                    <span class="text-gradient">Tentang Festival</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-emerald to-gold mx-auto mb-6"></div>
+                <p class="text-xl text-muted max-w-3xl mx-auto">
+                    Sebuah perayaan spiritual dan komunitas yang menghidupkan nilai-nilai Ramadhan melalui kegiatan pemuda yang inspiratif
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <!-- Card 1 -->
+                <div data-aos="fade-up" data-aos-delay="100" class="bg-surface p-8 rounded-2xl card-glow border border-emerald/20">
+                    <div class="w-16 h-16 bg-gradient-to-br from-emerald to-bright rounded-xl flex items-center justify-center mb-6 float-animation">
+                        <i data-lucide="heart" class="w-8 h-8 text-deep"></i>
+                    </div>
+                    <h3 class="text-2xl font-syne font-bold text-white mb-4">Spiritual</h3>
+                    <p class="text-muted leading-relaxed">
+                        Memperdalam pemahaman dan praktik ibadah Ramadhan melalui kajian, dzikir bersama, dan tadarus Al-Quran.
+                    </p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div data-aos="fade-up" data-aos-delay="200" class="bg-surface p-8 rounded-2xl card-glow border border-gold/20">
+                    <div class="w-16 h-16 bg-gradient-to-br from-gold to-yellow-500 rounded-xl flex items-center justify-center mb-6 float-animation" style="animation-delay: 0.5s">
+                        <i data-lucide="users" class="w-8 h-8 text-deep"></i>
+                    </div>
+                    <h3 class="text-2xl font-syne font-bold text-white mb-4">Komunitas</h3>
+                    <p class="text-muted leading-relaxed">
+                        Mempererat silaturahmi antar pemuda RW 04 dan membangun jaringan yang solid untuk kemajuan bersama.
+                    </p>
+                </div>
+                
+                <!-- Card 3 -->
+                <div data-aos="fade-up" data-aos-delay="300" class="bg-surface p-8 rounded-2xl card-glow border border-emerald/20">
+                    <div class="w-16 h-16 bg-gradient-to-br from-emerald to-bright rounded-xl flex items-center justify-center mb-6 float-animation" style="animation-delay: 1s">
+                        <i data-lucide="sparkles" class="w-8 h-8 text-deep"></i>
+                    </div>
+                    <h3 class="text-2xl font-syne font-bold text-white mb-4">Kreativitas</h3>
+                    <p class="text-muted leading-relaxed">
+                        Menyalurkan bakat dan kreativitas melalui lomba, workshop, dan pertunjukan seni islami yang menarik.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8" data-aos="fade-up">
+                <div class="text-center">
+                    <div class="text-4xl md:text-5xl font-syne font-bold text-gradient mb-2">500+</div>
+                    <p class="text-muted">Peserta</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl md:text-5xl font-syne font-bold text-gradient mb-2">20+</div>
+                    <p class="text-muted">Program</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl md:text-5xl font-syne font-bold text-gradient mb-2">15+</div>
+                    <p class="text-muted">Hari</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl md:text-5xl font-syne font-bold text-gradient mb-2">100%</div>
+                    <p class="text-muted">Berkah</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Section -->
+    <section id="program" class="py-24 bg-deep relative islamic-pattern">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-6xl font-syne font-bold mb-4">
+                    <span class="text-gradient">Rangkaian Program</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-emerald to-gold mx-auto mb-6"></div>
+                <p class="text-xl text-muted max-w-3xl mx-auto">
+                    Berbagai kegiatan menarik dan bermanfaat selama bulan Ramadhan
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <!-- Program 1 -->
+                <div data-aos="fade-right" data-aos-delay="100" class="bg-surface p-8 rounded-2xl border border-emerald/20 card-glow">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="w-12 h-12 bg-emerald/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="book-open" class="w-6 h-6 text-emerald"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-syne font-bold text-white mb-2">Tadarus & Kajian</h3>
+                            <p class="text-sm text-gold mb-3">Setiap Malam</p>
+                        </div>
+                    </div>
+                    <p class="text-muted leading-relaxed">
+                        Tadarus Al-Quran bersama dan kajian tematik seputar Ramadhan dipandu oleh ustadz berpengalaman.
+                    </p>
+                </div>
+                
+                <!-- Program 2 -->
+                <div data-aos="fade-left" data-aos-delay="100" class="bg-surface p-8 rounded-2xl border border-gold/20 card-glow">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="w-12 h-12 bg-gold/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="utensils" class="w-6 h-6 text-gold"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-syne font-bold text-white mb-2">Buka Puasa Bersama</h3>
+                            <p class="text-sm text-emerald mb-3">Setiap Minggu</p>
+                        </div>
+                    </div>
+                    <p class="text-muted leading-relaxed">
+                        Berbuka puasa bersama warga RW 04 dengan hidangan lezat dan suasana kekeluargaan yang hangat.
+                    </p>
+                </div>
+                
+                <!-- Program 3 -->
+                <div data-aos="fade-right" data-aos-delay="200" class="bg-surface p-8 rounded-2xl border border-emerald/20 card-glow">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="w-12 h-12 bg-emerald/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="trophy" class="w-6 h-6 text-emerald"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-syne font-bold text-white mb-2">Lomba Islami</h3>
+                            <p class="text-sm text-gold mb-3">Minggu Kedua</p>
+                        </div>
+                    </div>
+                    <p class="text-muted leading-relaxed">
+                        Lomba tahfidz, adzan, qiroat, dan kaligrafi untuk semua usia dengan hadiah menarik.
+                    </p>
+                </div>
+                
+                <!-- Program 4 -->
+                <div data-aos="fade-left" data-aos-delay="200" class="bg-surface p-8 rounded-2xl border border-gold/20 card-glow">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="w-12 h-12 bg-gold/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="gift" class="w-6 h-6 text-gold"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-syne font-bold text-white mb-2">Santunan Sosial</h3>
+                            <p class="text-sm text-emerald mb-3">Minggu Ketiga</p>
+                        </div>
+                    </div>
+                    <p class="text-muted leading-relaxed">
+                        Berbagi kebahagiaan dengan warga kurang mampu melalui santunan dan paket sembako.
+                    </p>
+                </div>
+                
+                <!-- Program 5 -->
+                <div data-aos="fade-right" data-aos-delay="300" class="bg-surface p-8 rounded-2xl border border-emerald/20 card-glow">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="w-12 h-12 bg-emerald/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="music" class="w-6 h-6 text-emerald"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-syne font-bold text-white mb-2">Festival Seni Islami</h3>
+                            <p class="text-sm text-gold mb-3">Akhir Ramadhan</p>
+                        </div>
+                    </div>
+                    <p class="text-muted leading-relaxed">
+                        Pentas seni kasidah, nasyid, dan drama islami dari talenta-talenta muda RW 04.
+                    </p>
+                </div>
+                
+                <!-- Program 6 -->
+                <div data-aos="fade-left" data-aos-delay="300" class="bg-surface p-8 rounded-2xl border border-gold/20 card-glow">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="w-12 h-12 bg-gold/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="star" class="w-6 h-6 text-gold"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-syne font-bold text-white mb-2">Malam Apresiasi</h3>
+                            <p class="text-sm text-emerald mb-3">Penutupan</p>
+                        </div>
+                    </div>
+                    <p class="text-muted leading-relaxed">
+                        Malam penutupan dengan penghargaan bagi peserta terbaik dan kenangan indah bersama.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="register" class="py-24 bg-dark relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-6xl font-syne font-bold mb-4">
+                    <span class="text-gradient">Daftar Sekarang</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-emerald to-gold mx-auto mb-6"></div>
+                <p class="text-xl text-muted max-w-3xl mx-auto">
+                    Raih kesempatan emas untuk menjadi bagian dari Ramadhan Youth Festival 2026
+                </p>
+            </div>
+            
+            <div class="max-w-2xl mx-auto">
+                <div data-aos="fade-up" data-aos-delay="200" class="bg-surface p-8 md:p-12 rounded-3xl border border-emerald/20 card-glow">
+                    <form id="registrationForm" x-data="registrationForm()" @submit.prevent="submitForm">
+                        <!-- Name -->
+                        <div class="mb-6">
+                            <label class="block text-text font-semibold mb-2">Nama Lengkap *</label>
+                            <input 
+                                type="text" 
+                                x-model="formData.name"
+                                class="input-field" 
+                                placeholder="Masukkan nama lengkap Anda"
+                                required
+                            >
+                        </div>
+                        
+                        <!-- Email -->
+                        <div class="mb-6">
+                            <label class="block text-text font-semibold mb-2">Email *</label>
+                            <input 
+                                type="email" 
+                                x-model="formData.email"
+                                class="input-field" 
+                                placeholder="email@example.com"
+                                required
+                            >
+                        </div>
+                        
+                        <!-- Phone -->
+                        <div class="mb-6">
+                            <label class="block text-text font-semibold mb-2">No. WhatsApp *</label>
+                            <input 
+                                type="tel" 
+                                x-model="formData.phone"
+                                class="input-field" 
+                                placeholder="08123456789"
+                                required
+                            >
+                        </div>
+                        
+                        <!-- Age -->
+                        <div class="mb-6">
+                            <label class="block text-text font-semibold mb-2">Usia *</label>
+                            <input 
+                                type="number" 
+                                x-model="formData.age"
+                                class="input-field" 
+                                placeholder="Contoh: 20"
+                                min="13"
+                                max="35"
+                                required
+                            >
+                        </div>
+                        
+                        <!-- Address -->
+                        <div class="mb-6">
+                            <label class="block text-text font-semibold mb-2">Alamat Lengkap *</label>
+                            <textarea 
+                                x-model="formData.address"
+                                class="input-field resize-none" 
+                                rows="3"
+                                placeholder="RT/RW, Kelapa Gading Timur"
+                                required
+                            ></textarea>
+                        </div>
+                        
+                        <!-- Programs Interest -->
+                        <div class="mb-6">
+                            <label class="block text-text font-semibold mb-3">Program yang Diminati *</label>
+                            <div class="space-y-3">
+                                <label class="flex items-center gap-3 cursor-pointer">
+                                    <input type="checkbox" value="tadarus" x-model="formData.programs" class="w-5 h-5 rounded border-emerald/30 bg-surface text-emerald focus:ring-emerald focus:ring-2">
+                                    <span class="text-muted">Tadarus & Kajian</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer">
+                                    <input type="checkbox" value="bukber" x-model="formData.programs" class="w-5 h-5 rounded border-emerald/30 bg-surface text-emerald focus:ring-emerald focus:ring-2">
+                                    <span class="text-muted">Buka Puasa Bersama</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer">
+                                    <input type="checkbox" value="lomba" x-model="formData.programs" class="w-5 h-5 rounded border-emerald/30 bg-surface text-emerald focus:ring-emerald focus:ring-2">
+                                    <span class="text-muted">Lomba Islami</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer">
+                                    <input type="checkbox" value="santunan" x-model="formData.programs" class="w-5 h-5 rounded border-emerald/30 bg-surface text-emerald focus:ring-emerald focus:ring-2">
+                                    <span class="text-muted">Santunan Sosial</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer">
+                                    <input type="checkbox" value="seni" x-model="formData.programs" class="w-5 h-5 rounded border-emerald/30 bg-surface text-emerald focus:ring-emerald focus:ring-2">
+                                    <span class="text-muted">Festival Seni Islami</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Message -->
+                        <div class="mb-8">
+                            <label class="block text-text font-semibold mb-2">Pesan (Opsional)</label>
+                            <textarea 
+                                x-model="formData.message"
+                                class="input-field resize-none" 
+                                rows="4"
+                                placeholder="Sampaikan harapan atau pertanyaan Anda..."
+                            ></textarea>
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <button 
+                            type="submit" 
+                            class="btn-primary w-full text-lg"
+                            :disabled="loading"
+                            :class="{ 'opacity-50 cursor-not-allowed': loading }"
+                        >
+                            <span x-show="!loading" class="flex items-center justify-center gap-2">
+                                <i data-lucide="send" class="w-5 h-5"></i>
+                                Daftar Sekarang
+                            </span>
+                            <span x-show="loading" class="flex items-center justify-center gap-2">
+                                <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                Mengirim...
+                            </span>
+                        </button>
+                        
+                        <!-- Success Message -->
+                        <div 
+                            x-show="success" 
+                            x-transition
+                            class="mt-6 p-4 bg-emerald/20 border border-emerald/50 rounded-lg text-emerald text-center"
+                        >
+                            <p class="font-semibold">Pendaftaran Berhasil! 🎉</p>
+                            <p class="text-sm mt-1">Terima kasih telah mendaftar. Kami akan menghubungi Anda segera.</p>
+                        </div>
+                        
+                        <!-- Error Message -->
+                        <div 
+                            x-show="error" 
+                            x-transition
+                            class="mt-6 p-4 bg-red-900/20 border border-red-500/50 rounded-lg text-red-400 text-center"
+                        >
+                            <p class="font-semibold">Terjadi Kesalahan</p>
+                            <p class="text-sm mt-1" x-text="errorMessage"></p>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="mt-12 grid md:grid-cols-3 gap-6" data-aos="fade-up">
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-emerald/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i data-lucide="phone" class="w-6 h-6 text-emerald"></i>
+                        </div>
+                        <p class="text-muted text-sm mb-1">WhatsApp</p>
+                        <p class="text-text font-semibold">+62 812-3456-7890</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-emerald/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i data-lucide="mail" class="w-6 h-6 text-emerald"></i>
+                        </div>
+                        <p class="text-muted text-sm mb-1">Email</p>
+                        <p class="text-text font-semibold">info@ryf2026.id</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-emerald/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i data-lucide="instagram" class="w-6 h-6 text-emerald"></i>
+                        </div>
+                        <p class="text-muted text-sm mb-1">Instagram</p>
+                        <p class="text-text font-semibold">@ryf2026</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-deep border-t border-emerald/20 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-emerald to-bright flex items-center justify-center">
+                            <i data-lucide="moon-star" class="w-6 h-6 text-deep"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-syne font-bold text-gradient">RYF 2026</h3>
+                            <p class="text-xs text-muted">Karang Taruna RW 04</p>
+                        </div>
+                    </div>
+                    <p class="text-muted text-sm">
+                        Ramadhan Youth Festival 2026 - Menyatukan pemuda dalam kebaikan dan kreativitas di bulan penuh berkah.
+                    </p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-syne font-bold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-muted hover:text-bright transition text-sm">Home</a></li>
+                        <li><a href="#about" class="text-muted hover:text-bright transition text-sm">Tentang Festival</a></li>
+                        <li><a href="#program" class="text-muted hover:text-bright transition text-sm">Program</a></li>
+                        <li><a href="#register" class="text-muted hover:text-bright transition text-sm">Pendaftaran</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-syne font-bold text-white mb-4">Kontak Kami</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-2 text-sm">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-emerald flex-shrink-0 mt-0.5"></i>
+                            <span class="text-muted">Kelapa Gading Timur, Jakarta Utara, DKI Jakarta</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <i data-lucide="phone" class="w-4 h-4 text-emerald flex-shrink-0"></i>
+                            <span class="text-muted">+62 812-3456-7890</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <i data-lucide="mail" class="w-4 h-4 text-emerald flex-shrink-0"></i>
+                            <span class="text-muted">info@ryf2026.id</span>
+                        </li>
+                    </ul>
+                    
+                    <!-- Social Media -->
+                    <div class="flex gap-3 mt-4">
+                        <a href="#" class="w-10 h-10 bg-surface rounded-lg flex items-center justify-center hover:bg-emerald hover:scale-110 transition-all">
+                            <i data-lucide="instagram" class="w-5 h-5 text-emerald hover:text-deep"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-surface rounded-lg flex items-center justify-center hover:bg-emerald hover:scale-110 transition-all">
+                            <i data-lucide="facebook" class="w-5 h-5 text-emerald hover:text-deep"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-surface rounded-lg flex items-center justify-center hover:bg-emerald hover:scale-110 transition-all">
+                            <i data-lucide="twitter" class="w-5 h-5 text-emerald hover:text-deep"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-divider"></div>
+            
+            <div class="text-center">
+                <p class="text-muted text-sm">
+                    &copy; 2026 Ramadhan Youth Festival. Made with <span class="text-red-500">❤️</span> by Karang Taruna RW 04
+                </p>
+                <p class="text-muted/60 text-xs mt-2 font-amiri">
+                    بَارَكَ اللهُ فِيْكُمْ
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+        
+        // Initialize Lucide Icons
+        lucide.createIcons();
+        
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger, TextPlugin);
+        
+        // Hero text animation
+        window.addEventListener('load', () => {
+            gsap.from('.ornament-circle', {
+                scale: 0,
+                duration: 2,
+                stagger: 0.3,
+                ease: 'elastic.out(1, 0.5)'
+            });
+        });
+        
+        // Smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Alpine.js Registration Form
+        function registrationForm() {
+            return {
+                formData: {
+                    name: '',
+                    email: '',
+                    phone: '',
+                    age: '',
+                    address: '',
+                    programs: [],
+                    message: ''
+                },
+                loading: false,
+                success: false,
+                error: false,
+                errorMessage: '',
+                
+                async submitForm() {
+                    // Validation
+                    if (this.formData.programs.length === 0) {
+                        this.error = true;
+                        this.errorMessage = 'Pilih minimal satu program yang diminati';
+                        setTimeout(() => {
+                            this.error = false;
+                        }, 3000);
+                        return;
+                    }
+                    
+                    this.loading = true;
+                    this.error = false;
+                    this.success = false;
+                    
+                    // Simulate API call
+                    try {
+                        // TODO: Replace this simulated delay with actual API endpoint
+                        // Example: const response = await fetch('/api/register', {
+                        //     method: 'POST',
+                        //     headers: { 'Content-Type': 'application/json' },
+                        //     body: JSON.stringify(this.formData)
+                        // });
+                        await new Promise(resolve => setTimeout(resolve, 2000));
+                        
+                        console.log('Form submitted:', this.formData);
+                        
+                        // Show success message
+                        this.success = true;
+                        this.loading = false;
+                        
+                        // Reset form after 3 seconds
+                        setTimeout(() => {
+                            this.resetForm();
+                        }, 3000);
+                        
+                    } catch (err) {
+                        this.error = true;
+                        this.errorMessage = 'Gagal mengirim data. Silakan coba lagi.';
+                        this.loading = false;
+                    }
+                },
+                
+                resetForm() {
+                    this.formData = {
+                        name: '',
+                        email: '',
+                        phone: '',
+                        age: '',
+                        address: '',
+                        programs: [],
+                        message: ''
+                    };
+                    this.success = false;
+                    this.error = false;
+                }
+            }
+        }
+        
+        // Counter animation for stats
+        const observerOptions = {
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.text-gradient');
+                    counters.forEach(counter => {
+                        const target = counter.textContent;
+                        const isNumber = target.match(/\d+/);
+                        if (isNumber) {
+                            const number = parseInt(isNumber[0]);
+                            gsap.to(counter, {
+                                innerHTML: number,
+                                duration: 2,
+                                ease: 'power1.inOut',
+                                snap: { innerHTML: 1 },
+                                onUpdate: function() {
+                                    const currentValue = Math.ceil(this.targets()[0].innerHTML);
+                                    let suffix = '';
+                                    if (target.includes('+')) suffix = '+';
+                                    else if (target.includes('%')) suffix = '%';
+                                    counter.innerHTML = currentValue + suffix;
+                                }
+                            });
+                        }
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        const statsSection = document.querySelector('.grid.grid-cols-2.md\\:grid-cols-4');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+        
+        // Parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.ornament-circle');
+            parallaxElements.forEach((el, index) => {
+                const speed = 0.5 + (index * 0.1);
+                el.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+        
+        // Refresh Lucide icons after DOM changes
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
