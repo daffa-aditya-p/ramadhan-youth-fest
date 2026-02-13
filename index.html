@@ -856,7 +856,12 @@
                     
                     // Simulate API call
                     try {
-                        // In production, replace this with actual API endpoint
+                        // TODO: Replace this simulated delay with actual API endpoint
+                        // Example: const response = await fetch('/api/register', {
+                        //     method: 'POST',
+                        //     headers: { 'Content-Type': 'application/json' },
+                        //     body: JSON.stringify(this.formData)
+                        // });
                         await new Promise(resolve => setTimeout(resolve, 2000));
                         
                         console.log('Form submitted:', this.formData);
@@ -913,7 +918,11 @@
                                 ease: 'power1.inOut',
                                 snap: { innerHTML: 1 },
                                 onUpdate: function() {
-                                    counter.innerHTML = Math.ceil(this.targets()[0].innerHTML) + (target.includes('+') ? '+' : target.includes('%') ? '%' : '');
+                                    const currentValue = Math.ceil(this.targets()[0].innerHTML);
+                                    let suffix = '';
+                                    if (target.includes('+')) suffix = '+';
+                                    else if (target.includes('%')) suffix = '%';
+                                    counter.innerHTML = currentValue + suffix;
                                 }
                             });
                         }
